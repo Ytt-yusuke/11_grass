@@ -62,6 +62,8 @@
                 float4 p0 = mul(UNITY_MATRIX_VP, float4(pos + float3(+width, 0, 0), 1));
                 float4 p1 = mul(UNITY_MATRIX_VP, float4(pos + float3(-width, 0, 0), 1));
                 float4 p2 = mul(UNITY_MATRIX_VP, float4(pos + float3(input[0].force.x, height, input[0].force.y), 1));
+                float4 p3 = mul(UNITY_MATRIX_VP, float4(pos + float3(0, 0, +width), 1));
+                float4 p4 = mul(UNITY_MATRIX_VP, float4(pos + float3(0, 0, -width), 1));
 
                 // 表
                 output.pos = p0;
@@ -71,6 +73,12 @@
                 output.color = color;
                 outStream.Append(output);
                 output.pos = p2;
+                output.color = color;
+                outStream.Append(output);
+                output.pos = p3;
+                output.color = color;
+                outStream.Append(output);
+                output.pos = p4;
                 output.color = color;
                 outStream.Append(output);
                 outStream.RestartStrip();
@@ -83,6 +91,12 @@
                 output.color = color;
                 outStream.Append(output);
                 output.pos = p1;
+                output.color = color;
+                outStream.Append(output);
+                output.pos = p3;
+                output.color = color;
+                outStream.Append(output);
+                output.pos = p4;
                 output.color = color;
                 outStream.Append(output);
                 outStream.RestartStrip();

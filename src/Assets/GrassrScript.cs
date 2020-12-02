@@ -12,6 +12,7 @@ public class GrassrScript : MonoBehaviour
     Material material;
     ComputeBuffer buffer;
 
+
     /// <summary>
     /// 初期化
     /// </summary>
